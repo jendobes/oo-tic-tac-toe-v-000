@@ -75,7 +75,7 @@ def won?
     end
   end
 
-  def full? 
+  def full?
     @board.all? {|position| position == "X" || position == "O"}
   end
 
@@ -86,10 +86,17 @@ def won?
       return false
     else won? == true
       return false
-    end 
+    end
   end
 
   def over?
      won? || full? || draw?
   end
+
+  def winner
+  if winning_index = won?
+    @board[winning_index.first]
+  end
+end
+
 end
