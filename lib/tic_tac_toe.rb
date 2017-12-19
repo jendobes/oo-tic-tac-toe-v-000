@@ -75,5 +75,21 @@ def won?
     end
   end
 
+  def full? 
+    @board.all? {|position| position == "X" || position == "O"}
+  end
 
+  def draw?
+    if won? == nil && full? == true
+      return true
+    elsif won? == false && full? == false
+      return false
+    else won? == true
+      return false
+    end 
+  end
+
+  def over?
+     won? || full? || draw?
+  end
 end
